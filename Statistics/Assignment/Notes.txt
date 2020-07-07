@@ -1,0 +1,44 @@
+1.1. Use methods of descriptive statistics to summarize data.
+Which Region and which Channel seems to spend more?
+Which Region and which Channel seems to spend less?
+
+1.2. There are 6 different varieties of items are considered.
+Do all varieties show similar behaviour across Region and Channel?
+
+1.3. On the basis of the descriptive measure of variability, which item shows the most inconsistent behaviour?
+Which items shows the least inconsistent behaviour?
+
+1.4. Are there any outliers in the data?
+
+1.5. On the basis of this report, what are the recommendations?
+
+
+1.1
+Other regions are spending significantly more than Lisbon and Oporto put together.
+Hotels are spending more than retail going by total sales value across regions. Oporto alone has its retail spending slightly better than the hotel.
+Additional insights as below:
+Among Lisbon and Opporto, Lisbon spends higher from total sales volume perspective.
+Lisbon's hotels have highest spend proportion against its retail channel by doing about 80% more than retail. Other region's hotel channel does around 16% more than its retail channel.
+
+1.2
+Other regions shows good number of outliers for every variety.
+Almost 4 varieties have their 3 quartiles within 10000 with 2 of them above that but less than 20000 leaving significant gaps with the maximum spend for that variety.
+Milk, grocery and detergents_paper have wider gap in spend pattern across channels with retail on the higher side.
+Fresh, grocery, frozen and delicatessen show a common trend of higher sales value in hotel channel in conparison to retail channel across all regions.
+Grocery spend is considerably lower in hotels across the region compared to the retail.
+Delicatessen's spend ratio between channels are pretty close for all the regions. 
+
+There are differences noticed in the spend pattern across items.
+Mean of hotel spend is higher than mean of retail spend for items such as fresh and frozen.
+Mean of retail spend is higher than the mean of hotel spend for items such as delicatessen, detergents_paper, grocery and milk
+ 
+1.3
+Based on the coefficient of variation Fresh shows the most consistent behaviour followed by Grocery
+Delicattsen shows the least inconsistent behaviour followed by detergents_paper and frozen.
+Note: Going by relationship strength the Detergent paper and Grocery strongest positive co relation.
+
+
+1.4
+In general good number of outliers are present in Other regions across all the items.
+Opporto has minimum outliers among the 3 regions.
+Retail channel depicts very minimal or no outliers across Lisbon and Opporto. 

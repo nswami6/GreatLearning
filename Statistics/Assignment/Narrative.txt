@@ -1,0 +1,30 @@
+General observations across the region in terms of sales value and transaction count:
+Other regions top the chart in terms of total sales value and transaction count across the 3 regions followed by Lisbon and Opporto in that order.
+Looking at the aggregate sales value Hotels does more business as a channel for all regions put together. Among regions except for Opporto which does more in retail other regions align with that trend.
+From a channel wise transaction count perspective , Lisbon and Opporto does almost same in retail while for hotel channel Lisbon's count is double that of Opporto.
+From a channel wise sales value perspective, Opporto's retail sales value is greater than Lisbon by approximately 40% despite both of their transaction counts being congruent to each other. i.e Lisbon's mean sales value is higher than Opporto.
+
+
+Observation on the distribution of the sales value:
+Overall retail sales value is right skewed for other region and Opporto. Other region is right skewed in both the channels.
+Other regions have good number of outliers across the channels with Lisbon and Opporto has some outliers.
+Hotel sales for Lisbon and Opporto tend to be about normally distributed except for few outliers which Lisbon has more than Opporto while both have their sales distribution just about normal.
+
+
+Except for frozen and fresh, hotels fall short of retail in terms of sales value and transaction count across the items.
+Fresh sales value is spread more consistently followed by groceries while delicatessen is least consistent followed by detergents_paper.
+For Fresh, Lisbon does much better mean sales value compared to Opporto while Opporto does better in retail.
+For milk, in hotel channel Lisbon's does better mean sales value across all the regions. Opporto's mean is much lesser.
+For grocery, in retail channel Lisbon does better mean across regions, while for hotel channel Opporto is highest despite much lower transaction count.
+For frozen, in hotel channel Opporto has highest mean sales value despite lower transaction count while it does much lesser than Lisbon when it comes to retail.
+For detergents_paper, in hotel channel Lisbon is almost 4 times higher in sales value than Opporto while its transaction count is double that of Opporto. In retail Other regions is doing much lower sales value.
+For delicatessen, in retail Lisbon does higher mean sales value across region while Opporto is noticed to do much lesser mean despite similar transaction count with Lisbon.
+
+Improving market share in hotels for Opporto can be focussed upon as it is comparatively much lesser in terms of penetration.
+Lisbon has rooms to improve when it comes to retail sales business looking at their performance in comparison to Opporto but has potential. 
+Fresh items will need a focus in the retail market for Lisbon as it is below average comparing other regions.
+Sales performance for milk needs further investigation on the low business among Opporto hotels looking in comparison to Lisbon's. Fact that both regions have no outliers the mean sales value is disproportionate between two regions for this channel.
+Opporto seems to be an attractive market for Frozen and hence more focus can be given in the retail sector too to take advantage towards improving revenue.
+Statistics indicate the detergents_paper business is not that great in Opporto hotel channel as it shows significantly low mean sales value comparatively.
+Delicatessen seems to have a similarities with overlaps on the error margin observed on the mean sales value across channels and hence could look at how channels  can elevate sales to take advantage espcecially in other regions and Opporto.
+Also going by the relationship strength, with detergents paper and grocery having strongest correlation suggests an opportunity to improve detergent paper sales by providing promotions through cross selling them along with Groceries. Recommendation is to explore new promotion models towards the same.

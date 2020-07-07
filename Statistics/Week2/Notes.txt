@@ -32,9 +32,19 @@ inverting the question to finding the probability is to find the ordinate corres
 
 Above aspects producing association rules across attributes is called market basket analysis. association with higher probability is target of marketing.
 
-
+norm.dist  directly get prob values for a given x with given mu and sigma
+norm.s.dist Pass Z to get  probability instead of arguments for norm.dist
+norm.inv  returns the ordinate for a given prob with given mu and sigma
+norm.s.inv returns the z ordinate for a given prob
 
 Questions:
 we are using mu as a parameter in normal distribution.. wouldnt the extreme values affect the probability?
+
+step1 : hypothesis formulation (H0 vs H1)... H1 can be one tailed or two tailed.
+step2  : record level of significance or alpha 
+step3 : compute t statistics (one sample or two sample or differential)
+step4 : record degrees of freedom
+step5: compute p value using TDIST in excel (Decide accept or reject of null hypothesis based on p value comparison
+		with alpha expected)
 	in a normal distribution the extreme values are not really outliers. its true if the distribution is skewed
 

@@ -1,0 +1,86 @@
+
+Null hyposthesis test (H zero) vs alternative hypothesis test (H one): uses sample population mean and std dev
+----------------------------------------------------------------------
+Also called Z test
+Null hypothesis is tested only with equality sign based on z distribution. for academic purposes >= or <= can be assumed.
+Determine critical value at 95% of the left or right side of the mean
+Based on the targeted reject region against the mean for null it could be left tailed or right tailed test.
+mean of null curve is called hypothesised mean. other one is called sample mean.
+
+For large sample we can assume X bar is normally distributed.
+Do critical value approach or p value approach as below to finalize on Z hypothesis.
+
+Mu of null curve will be the Mu for the test. Z value for Mu of alternative hypothesis (called computed Z) will be 
+compared to the Z critical value(Z value at 95th percentage of null hypothesis curve). 
+1.If Z critical value of null curve is lesser than the Conputed Z value then the null hypothesis can be rejected. In
+this case computed Z value falls in rejection region against the null hypothesis.
+
+Note: 95th percent point of null is also refered to alpha of 5% to the null curve.Region beyond z critical value in the null 
+curve is rejection region. 
+
+Additional p value is the probability of Z value of mu of hypothesis against the null distribution. this value
+	determines the significance of the alpha if p is < alpha null hypothesis can be rejected.
+
+2.Additionally if p value is lesser than alpha(5%) then the null hypothesis can be rejected. This refers 
+p value computed by norm.s.dist in excel using Z value
+
+So steps involved
+1. State H0 and H1... Hypothesis formulation
+2. Decide alpha
+3. identify the test and compute the test statistics.
+4. compute p value
+5. Conclude reject or accept null hypothesis.
+
+Limitations of Z test.
+1.sample size > 30
+2.population std deviation should be known.  why should population to be available why would we do approximation
+	with the kind of processing and storage power we have today? why should we even do this test.
+
+so we need population mean to go for z test.
+
+T test, Two sample T test, Paired T test without expected mean given
+--------------------------------------------------------------------
+In this case we cant find Z value?
+
+step1 : hypothesis formulation (H0 vs H1)... H1 can be one tailed or two tailed.
+step2  : record level of significance or alpha 
+step3 : compute t statistics (one sample or two sample or differential)
+step4 : record degrees of freedom
+step5: compute p value using TDIST in excel (Decide accept or reject of null hypothesis based on p value comparison
+		with alpha expected)
+	in a normal distribution the extreme values are not really outliers. its true if the distribution is skewed
+
+In these tests over and above sample mean and sample std dev we need to know the degrees of freedom to find the
+	t statistics. diff with z test is here we use sample std dev instead of population std dev 
+	t statistics formulae is different across Z test and T tests. However within T test it has relevant differences
+	across them in their formuales.
+
+
+Computations:
+1 sample t test
+t = (x bar - mu)/(S / root of n) with degrees of freedom as n-1. 
+	x bar is sample mean, mu is hypothesis mean, S is sample std dev, n is sample size
+	very similar to z test except for we are using sample std deviation instead of population std deviation.
+p value excel function: TDIST(t, df, 2 for two tailed)
+
+2 sample t test
+t = (x1 bar - x2 bar)/root of ( (s1 square/n1)+(s2 square/n2) ) with degrees of freedom n1-1+n2-1 = n1+n2-2
+variance in excel = var.s()
+
+paired t test
+t = d bar/(S of d/root of n) with degrees of freedon as n-1.
+
+
+Questions:
+H0: how does the null hypotheses = <> >= <= impact the t statistics and the p value? how is the hypothesis definition
+	controlling the p value? which part of the formula is impacted by this in other words?
+2. Computing confidence interval?
+where is the alpha determined in the code.
+4. should the beta calculation to be restricted to paired t test?
+Class
+-----
+alpha is a risk region or rejection region.
+Z score can be computed for categorical values. ex. Chi square test.
+mean and sigma are population parameters whereas X bar and S are called sample statistics and not parameters.
+Beta: mean of difference between samples is different from difference of mean
+reference statsmodel.org to check on parameters of functions used.

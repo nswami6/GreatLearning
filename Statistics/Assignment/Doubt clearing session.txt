@@ -1,0 +1,15 @@
+reference book on inferential statistics:  Anderson Sweeney  (Statistics for business and economics)
+
+law of large numbers
+
+central limit theorem
+
+T test for more than 2 samples would go through ANOVA test
+
+in order to check if a sample is normally distributed need to do chafeero test on each test.
+
+if two samples are of different sizes there is a complicated formulae for degrees of freedom.
+
+conf interval = xbar +/- (Z(alpha/2) * sigma/sqrt(n))...alpha/2 is to attend to both sides of the mean in the curve.
+
+shohel.noor@gmail.com  (mobile: 8805316765)

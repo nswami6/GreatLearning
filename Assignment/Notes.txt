@@ -1,0 +1,3 @@
+https://stackoverflow.com/questions/25254016/pandas-get-first-row-value-of-a-given-column
+https://stackoverflow.com/questions/16782323/python-pandas-keep-selected-column-as-dataframe-instead-of-series
+https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.iloc.html

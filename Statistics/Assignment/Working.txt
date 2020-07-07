@@ -1,0 +1,70 @@
+Major
+-----
+Conditional probability of Undecided major for male is:               10.34%
+Conditional probability of CIS major for male is:                     3.45%
+Conditional probability of International Business major for male is:  6.90%
+Conditional probability of Accounting major for male is:              13.79%
+Conditional probability of Other major for male is:                   13.79%
+Conditional probability of Management major for male is:              20.69%
+Conditional probability of Economics/Finance major for male is:       13.79%
+Conditional probability of Retailing/Marketing major for male is:     17.24%
+
+Conditional probability of Undecided major for female is:              0.00%
+Conditional probability of CIS major for female is:                    9.09%
+Conditional probability of International Business major for female is: 12.12%
+Conditional probability of Accounting major for female is:             9.09%
+Conditional probability of Other major for female is:                  9.09%
+Conditional probability of Management major for female is:             12.12%
+Conditional probability of Economics/Finance major for female is:      21.21%
+Conditional probability of Retailing/Marketing major for female is:    27.27%
+
+Probability of Undecided intent among students is:                    4.84%
+Probability of CIS intent among students is:                          6.45%
+Probability of International Business intent among students is:       9.68%
+Probability of Accounting intent among students is:                   11.29%
+Probability of Other intent among students is:                        11.29%
+Probability of Management intent among students is:                   16.13%
+Probability of Economics/Finance intent among students is:            17.74%
+Probability of Retailing/Marketing intent among students is:          22.58%
+
+Grad intent
+------------
+Conditional probability of graduate intention as No for a male is:         10.34%
+Conditional probability of graduate intention as Undecided for a male is:  31.03%
+Conditional probability of graduate intention as Yes for a male is:        58.62%
+
+Conditional probability of graduate intention as No for a female is:       27.27%
+Conditional probability of graduate intention as Undecided for a female is: 39.39%
+Conditional probability of graduate intention as Yes for a female is:      33.33%
+
+Probability of No for graduation intent among students is:            19.35%
+Probability of Undecided for graduation intent among students is:     35.48%
+Probability of Yes for graduation intent among students is:           45.16%
+
+employment status
+-----------------
+Conditional probability of Unemployed status for male is:             10.34%
+Conditional probability of Full-Time status for male is:              24.14%
+Conditional probability of Part-Time status for male is:              65.52%
+
+Conditional probability of Unemployed status for female is:           18.18%
+Conditional probability of Full-Time status for female is:            9.09%
+Conditional probability of Part-Time status for female is:            72.73%
+
+Probability of Unemployed status among students is:                   14.52%
+Probability of Full-Time status among students is:                    16.13%
+Probability of Part-Time status among students is:                    69.35%
+
+Computer preference
+--------------------
+Conditional probability of Tablet preference for male is:             0.00%
+Conditional probability of Desktop preference for male is:            10.34%
+Conditional probability of Laptop preference for male is:             89.66%
+
+Conditional probability of Tablet preference for female is:           6.06%
+Conditional probability of Desktop preference for female is:          6.06%
+Conditional probability of Laptop preference for female is:           87.88%
+
+Probability of Tablet preference among students is:                   3.23%
+Probability of Desktop preference among students is:                  8.06%
+Probability of Laptop preference among students is:                   88.71%
