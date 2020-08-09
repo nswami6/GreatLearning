@@ -1,0 +1,38 @@
+Analysis of variance compares means and not variance. i.e Annova uses variances to compare means.
+Treatment (experimental design) does not start with data but with a question which results in collection of data with appropriate considerations narrowed down.
+experimental design is collecting of data in order to answer either in positive or negative sense a specific hypothesis we have in mind.
+Experiment is set of activity at the end of which we generate data. This business problem begins with question instead of data. based on the question we collect data.
+Experiments are carried out with intent of comparing means which has strong cause and effect basis in the nature of comparison they do to state not only if means are different but also why they are different. so it tries to go beyond the idea of correlation until upto causation.
+While collecting data we need to look at considerations against the business question and what is the data collected on. Also is there anything else that we collect info on besidesthe variable we are interested in.
+randomization is an important criteria for making good experimental design. ex. randomized control trials in clinical trials.
+randomization attends to the fact that difference in mean between two populations is only due to the treatment and nothing else.
+meaning the population is randomized in such a way that the design enables experimenting the intended cause and effect.
+Randomize means other aspects should be equally distributed among the samples but only treatment difference should be there.
+step 0 is randomization. experimental design is set up in such a way that everything other than treatement effect is averaged over out or present in all the treatments so that it ensures it compares only the effect of different levels of treatment.
+difference between t test and annova is t test compares two population means while annova does it for more than 2 with different treatments.
+To make a proper business conclusion from hypothesis testing to infer cause and effect correctly it requires that randomization and replication are performed properly during experimental design.
+Null hypothesis assumes means of as many populations in annova are equal.
+
+Assumptions
+------------
+samples are independent and random
+response/dependent variables of all the populations are nomrally distributed.
+variances of all the populations are equal or atleast approximately. 
+But means alone can differ as per alternate hypothesis. Assumption on alternate hypothesis is not all of the population means are equal. however we will not know which pair differs in their mean but the message is atleast one of the pair does not match in their mean.
+meaning cause is going to establish existence of the effect rather than finding where exactly the effect is. so null hypothesis can be false for variety of reasons which we cannot establish thru annova.
+dependent variable should be continous and independent variables are categorical variables.
+Two way annova is impacted by outliers on both factors along with interaction between factors. each of the individual factors should have atleast 2 levels of categories.
+Number of observations in each group for one way annova can be different while it should be same for two way in each group (including both factors across all combinations) to achieve the criteria of balance.
+one and two way should satisfy randomization and replication (multiple observations of samples within category to estimate error statistics). Two way annova also needs to satisfy blocking across all combinations of categories when it comes to samples. 
+Block is a combination of treatments which must be formed carefully with conditions who make treatment designs will have to consider about. Blocking will reduce the impact of error due to other characteristics of smaples within the treatment.
+
+Note:
+treatment variables are different from observations. we dont have control on observations such as sales and store sizes where the treatment variables like pricing and advertizing are designed for experiments.
+One way annova has 1 hypothesis while 2 way annova has 2 hypothesis for individual factors and one more hypothesis for interaction between factors towards dependent variable.
+Annova decomposes the total variation into components... i.e variance among the population i.e (Total variation (Total sums of squares TSS)=Treatment sums of squares (between treatments)-SST  + variance within the population/treatment (eeror sums of squares-SSE))
+please note total variation is not same as total variance as the sigma value is not divided by anything.
+Either one of factor 1 or 2 in 2 way anova need not have direct influence on the dependent variable however can calibrate the influence of the other variable to the output/dependent variable. this is interaction.
+Anova takes total variability of data and decomposes that into an effect that is between treatments and effect that is within treatments. F statistics of anova indicates how many times is the between sum of squares w.r.t within sum of squares.
+
+Regression together with anova is a standard toolkit of datascience and statistical modeler to reach inferential conclusion.
+Relating one continous variable to another corelated continous variable to build a model is called regression model.

@@ -1,0 +1,3 @@
+one of the assumption of anova is that residuals are normally distributed.
+
+adding additional independent variable beyond 2 factors is ANCOVA model

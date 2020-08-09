@@ -1,0 +1,125 @@
+PCA helps towards reducing dimensions when there are multiple columns by reducing them to fewer PCA.
+PCA is useful when multiple columns has covariances/co relation so that it uses that to explain good amount of original data
+		with reduced dimensions as Principle components. i.e find lower dimensional representation of higher dimensional data.
+PCA also helps in avoiding relationship between variables (such as multi colinearity) if we have to interpret the 
+	coefficients that makes the algebraic equation and not just the prediction.
+Multi colinearity does not impact prediction of target but interpretation of coefficients in the algebraic equation.
+
+Uses of PCA: to compress images using dimension reduction (important portions of the image pass first etc), 
+	feature analysis (i.e 2 of the 9 attributes correlation contributes to the PCA etc), capturing few features for 
+	a useful model like label prediction methodology that avoids relationship between variables. and many more.
+
+PCA's descendants were are also used towards many technology advancements in text, speech processing etc.
+Eigen vector establishes a direction that captures most of the variances on its axis and there will be as many eigen vectors
+	until all of the data could be explained in as many dimensions. 
+Each eigen vector will hvae its equivalent eigen value that explains the variance captured for the dataset equivelent to 
+	that of a single eigen vector (i.e PCA).
+Eigen values assists in how many PCA to pick based on its cumulative percentage coverage compared to the total 
+	variance of the original data set.
+Eigen vector can be used for loadings of factor analysis.
+
+Eigen vector reduces off diagonal elements of covariance metrics from which it is formed to 0. which mean co relations
+	are captured by PCA.
+
+There are other approaches to dimension reduction other than PCA. FYI.
+
+
+In ML, dimension reduction problem is an example of steps performed for unsupervised learning as we dont have specific target.
+
+For PCA, variance should be symmetric.
+
+Steps invoiced in arriving at dimension reduction:
+1.First step of PCA is data cleaning and scale the data. Note: Covariance matrix of standardized variable is actually a correlation matrix
+2.Second step is find covariance matrix
+3.Third step is to derive eigen vector along with its eigen values. Eigen value is the variances mapped to the corressponding eigen vector.
+4.Fourth step is to get the principal component
+5.Fifth step is reducing dimensions of the data based on the eigen values (sorted in descending along with eigen vector) to determine top set of PC's that defines maximum variance.
+
+Preliminary steps for above:
+a.Null replacement with mod, median, mean approaches including outlier treatments.
+b.Inconsistent data to be fixed
+c.Data types to be aligned to numeric.
+d.Data standardization
+
+
+so every eigen vector is a multiplying factor with its respective original arritube from the data set that are subset of
+         larger data set which captures maximum variances along the alternative axis corressponding to the eigen vector.
+
+Influence of PC on a dimension is called weights or "loadings" which is nothing but eigen vector.
+
+example of original data set: A list of movie id's rated by the user is the feature which could be 9000+. The idea of PCA is to reduce the number of movies to predict the user download irrespective of its rating.
+Note:
+standardize the variables before performing EDA on the same. this is the common step required for ML/predictive algorithem
+independent features are otherwise predictive variables. target variables are dependant variables. two predictive variables that are highly corelated will introduce lot of bias 
+					onthe output prediction and hence needs to be cleaned up.
+Eigendecomposition on covariance matrix means finding eigen vectors and eigen values for that co variance matrix.
+Multiple related /corelated variable can be combined into one variable called latent variable.
+
+Covariance denotes: how co dependent 2 variables are (negative ones are indirectly proportional while postive ones are directly proportional).
+
+PCA methodology enables feature extraction which reduces dimension. this is differnet from feature selection.
+PC themselves are hiding themselves in covariance matrix is someway thinking of taking a sq root of the matrix. but not necessary to think that way.
+ 
+In the rotated axis where the PC (variance) is in the diagonal axis of cov matrix there is no co relation remaining. i.e Corelation and covariance between PC1 and PC2 is zero.
+	meaning one more dimension to representation we are not hurting previous ones. this is what diagonalization does. meaning off diagonal elements in new coordiante space is 0
+Univariate data has means and variances. multivariate data has variances and co variances represented by covariance matrix.
+
+identity matrix mean diagonal will be 1 others will be 0.
+
+scree plot is used to determine number of principle components.
+
+Comparison between Covariance and Correlation:
+1.Covariance is the variance measured among the dimension which denots the direction of relationship between two independent variables.Covariance expresses a dimensions variance with itself as well as with other dimensions in the form of matrix. 
+However when it comes to Corelation apart from just the direction of relationship it also denotes the measure of strength of relationship between two independent variables.
+2.Covariance are influenced by unit of variables in the original dataset  while corelation which is derived by dividing product of variance between two independent
+ variables with product of their standard deviation has values standardized between -1 and +1 which will be its range. 
+3.Hence coreleation is a unit free standardized measure with a known range of values while covariance can range between infinite values on either side of zero.
+4.Due to robustness of Corelation measure between two variables it is more preferred than covariance for analysis.
+5.On the other hand, covariance matrix of standardized variable is actually a correlation matrix
+6.The sign of elements of covariance matrix and the equivalent corelation matrix is identical.
+
+
+Covariance denotes how co dependent two independent variables. 
+The independent variables with positive corelation are directly proportional .
+The indepdendent variables with negative corelation are inversely proportional.
+
+What do eigen vectors indicate?
+Eigen vector establishes a direction that captures most of the variances on its axis and there will be as many eigen vectors until all of the data could be explained in as many dimensions. 
+Each eigen vector will correspond to an appropriate eigen value that explains the variance captured for the dataset equivalent to that of a single eigen vector (i.e Principal component analysis).
+Eigen values assists in how many PCA to pick based on its cumulative percentage coverage compared to the total variance of the original data set.
+Eigen vector can be used for loadings of factor analysis.Influence of principal component on a dimension is called weights or "loadings" which is nothing but eigen vector.
+Eigen vector reduces off diagonal elements of covariance metrics from which it is formed to 0. with every eigen vector corresponding to a Principal component this property of the eigen vector ensures orthogonality of every other principal component also enables to overcome the challenge of multi colinearity among variables when it comes to prediction. 
+
+
+Cumulative values of eigen values and how it helps to decide on the optimum number of principle components :
+Eigen values are the variances mapped to the corressponding eigen vector.
+Highest eigen values based on its proportion to the total eigen values derived out of decomposition of the covariance matrix of the original dataset helps us in optimizing/determining the optimal number of principal components towards prediction analysis. This method is also referred to as dimension reduction.
+Hence cumulative values of eigen values in its descending order helps us to determine optimal number of corresponding eigen vectors to ensure appropriate percentage of coverage of total variance among the data in the original dataset.
+Eigen values assists in how many PCA to pick based on its cumulative percentage coverage compared to the total variance of the original data set.
+Each eigen value derived out of decomposition of the covariance matrix of the original dataset has corresponding eigen vector which is nothing but the principle component for the given eigen value. 
+
+(negative ones are indirectly proportional while postive ones are directly proportional).
+
+Tips:
+Bartletts test of sphericity: test for correlation between variables. testing based on hypothesis testing.
+Pick those eigen values that are greater than 1.
+for eigen vector and value explanation look into mathisfun
+
+Questions:
+----------
+1.Explicit form of PCA in terms of Eigen vectors? does this mean the transposed array of eign vector or does it mean anything else.
+2.Explain deciding the type of scaling functions for the variables? is there anything else other than Z score? Videos suggest subract mean from sample to center the data at 0, but the code suggests Z score. any differences here?
+3.Comparison between covariance and correlation after scaling? what does this exercise infer?
+4.How to fetch the subset of the original dataset related to a principle component/eigen vector?
+5.Deciding optimal number of principle components? is this optional and contextual or is there a benchmark?
+6.what is label prediction methodology? it is said to be related to avoid relationship between variables such as multi colinearity
+7.Eigen vectors can be used for "loadings" of factor analysis? can this be clarified.
+8. How is skewness affecting the effectiveness of the PCA as well as the notion of variance.
+
+
+is it necessary to scale every variable ? Is it ok if few variables with minimal outliers to be overlooked if good part of one dimension is well shaped. Will that in any way be detrimental to any of the next steps towards arriving PCA?
+If the dataset is well shaped after scaling is it necessary to standardize the variables? if there is a potential if standardization of scaled variable is not resulting deterioration of normality can standardization be skipped?
+what is the right cumulative percentage as a general standard for limiting the number of primary components?
+purpose of transposing the matrix. In sample code linear algebra way of finding eigen vectors are transposing the covariance matrix upfront while another example uses PCA which does not transpose. So what is the right represenation of PCA component by component?
+
+How different is the business implication from stating the result of the null hypothesis for anova testing?

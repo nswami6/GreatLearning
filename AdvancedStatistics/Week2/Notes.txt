@@ -1,0 +1,3 @@
+value_counts can be done only on object and not numeric as it needs to be done on categorical field where there could be uniqueness
+
+if there are outliers impute with median and not mean.

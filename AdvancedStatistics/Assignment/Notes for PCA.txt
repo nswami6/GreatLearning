@@ -1,0 +1,72 @@
+Univariate and multivariate analysis
+-------------------------------------
+Types of variables:
+Out of 18 columns in the dataset 17 are independent and continous variables
+
+Outliers:
+Except for Top25percent every other variable has high amount of outliers with outstate having minimal outlier with positive skewness.
+
+Distribution:
+Top25percent while not perfectly normally distributed is somewhat closer to it while rest of the variables are mostly 
+
+Skewness:
+Overall all of the variables are skewed with Terminal, PhD and Grad.Rate being left skewed while rest of the variables are positively skewed.
+
+Correlation:
+High correlations:
+Apps with Accept, Enroll, F_Undergrad
+Accept with Enroll, F.Undergrad
+Top10perc with Top25perc
+Room.Board somewhat with Outstate
+Terminal with PhD
+
+Low correlations:
+Books and Personal are comparaitively least corelated with every other variable. 
+
+Scaling
+-------
+Since almost all the variables have significant outlier introducing outliers at disproportionate scale outside the empirical rule
+of the distribution, there is a need to bring the values within a visible control along with avoiding misinterpretation
+of co variance among variables during PCA. Larger values tend to confuse the co variance and hence confounding the 
+actual direction or signal towards decomposing the data into eigen vectors and eigen values.
+
+Accordingly logarithmic transformation will enable us to bring the data within a reasonable range and also impart
+better shape to the data decreasing the outliers and improving the normal distribution.
+
+This also optimizes the impact of outlier treatment post scaling while also enabling much better outcome on
+	outlier treatment post the scaling.
+
+Hence after careful comparison of few scaling approaches such as standardscaler, minmaxscaler and logarithmic scaler,
+the variables have been finally scaled with logarithmic transformation. And the results align with above narration as 
+it can be seen.
+
+Outliers after scaling
+----------------------
+1. Variables other than Books, Expend, Top25perc, Top10perc, PhD, Terminal and S.F.Ration are significantly treated for their outliers automatically post scaling.
+2. Out of those variables Enroll and F.Undergrad are completely treated for outliers.
+3. Few observations on those variables that still retain outliers or introduced new outliers as below.
+		Books, Expend, continue to have good number of outliers despite scaling however they are equally spread across either side of whiskers compared just right side of the whisker in the original dataset.
+		Top25perc has introduced new outliers while original dataset did not have any outliers
+		Top10perc, P.Undergrad, Outstate, Room.Board, perc.alumni had outliers beyond maximum whisker in the original dataset. While scaled dataset does not have any of those outliers it has introduced few outliers to the left of minimum whisker.
+		Personal variable got most of its outlier right of whisker fixed but couple of outliers introduced to the left of whisker.
+		PhD, Terminal, S.F.Ratio and Grad.Rate ended up with more outliers to the left of whisker than the original dataset.
+4. Personal variable is normally distributed post scaling while it was not with the original dataset.
+
+Outlier treatment
+------------------
+Except for Top25percent, every other independant variable has good amount of outliers in the original dataset.
+As a part of scaling through logarithmic transformation we could notice good amount of indpendent variables are
+comparatively distributed much better limiting the scope of outlier treatment.
+Considering minimal outliers on either sides of the whiskers post to scaling, this gives an opportunity to impute
+the outliers with the value equivalent to minimum and maximum whiskers on either sides of the whiskers accordingly without
+much impact to the range of the scaled dataset.
+Accept, Top10Percent, P.Undergrad, Books, PhD, Terminal, S.F.Ratio, Expend, Grad.Rate variables
+have extremely limited outliers (mostly 1 outlier) after outlier treatment compared to the original dataset.
+Alumni, Personal, Room.Board, F.Undergrad, Enroll and Apps are completely treated for outliers.
+
+There are 2 specific observations as below between pre and post scaling for outliers that may be of concern. However
+given that scaling the dimensions has to be consistent it is necessary to go ahead with this minimal exception 
+despite below observations.
+	1.Original dataset does not have outliers for Top25Perc whereas it has one outlier post scaling and treatment.
+	2.Original dataset also has better curve for Outstate with an outlier while the scaled and treated dataset has shruken
+	inter quartile range along with one outlier.

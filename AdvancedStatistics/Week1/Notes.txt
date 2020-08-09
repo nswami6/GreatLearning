@@ -1,0 +1,33 @@
+Assumption for ANOVA :
+all samples are normally distributed and have equivalent variance.
+Null hypothesis is to prove that all has equal mean while alternate is the prove at least one of them is different.
+ANOVA decomposes the variances due to multiple sources of its variability.
+
+total variation(total sums of squares)= treatment sum of squares + Error sum of squares
+
+treatment = in design what are my different settings.
+
+sums of squares due to treatment is difference between multiple distribion ("between" distribution)
+whereas for errors is variation "within" each treatment
+ANOVA takes total sums of squares (total variances) and it decomposes that into effect that is between treatment as sums of squares due to treatement and other one as within the treatment levels as sums of squares due to error. 1 is variance due to treatment and the other due to everything else(error)
+Ratio of mean sums of squares (treatment and the error) SSE/DF is F ratio. F ratio gives by what multiple the between sums of squares is greater than within sums of squares.
+ANOVA executes the business decision by associating a p_value to that F statistics.
+
+ANOVA assumes randomization is done during experimental design of the factors within the levels of each factor. this is step zero. everything other than treatment has to be averaged overall or present in all the treatment levels.
+Randomization and replication are very critical part of the design to apply statistical rules for ANOVA on top of the samples.
+
+
+Two way ANOVA is same as One way ANOVA within a treatment/factor to determine if the dependent variable is dependant on this factor or not. Also it can determine if there interaction between the factor.
+If more observations are available it can be used to calibrate the outcome. if the observation is a continous variable just like dependent variable it leads to regression model.
+
+In essence ANOVA compares means. if the means are organized for one factor/traeatement they are one way ANOVA of if more than one like two it shall be called two way ANOVA with or without interactions.
+
+ANOVA is the foundational technique for analytics and is also used for experimental design. 
+Experimental design: collecting of data in order to answer either in the postive or negative sense about a specific hypothesis.
+
+
+what is randomization of error part of the data ? ("Within")
+How to handle the treatment if there are significant outliers in the sample groups on the independent variables? related to assumption of 2 way ANOVA
+
+one of the diff between 1 way and 2 way ANOVA stating earlier can have different number of observations among the groups the later is expected to have same number of observation in each group ! Why.. is that witin the factor or across the factor?
+ 
