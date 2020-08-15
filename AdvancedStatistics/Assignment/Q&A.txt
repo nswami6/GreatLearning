@@ -1,0 +1,18 @@
+ANOVA- independent categorical variable + concomitent variable (not to forget to avoid unmask the importance of this) = continous variable.
+concomitent variable is additional independent variable that is continous/numeric variable in ANOVA
+
+PCA is used in predictive algorithem. helps in unsupervised learning.
+scree plot is also called elbow graph. you shall stop taking eigen vectors with eigen values beyond the elbow point in the scree plot.
+
+
+take the eigen vector and multiply it with actual values based on the factor in the eigen vector
+i.e multiple the respective columns with the equivalent eigen vetor in the PC1 for the explicit form.write this equation.
+if the eigen vector for a column is negative take only abs value or mention the sign but make a note that it is just a direction
+Please note that a given PCA (1st component in this case) is a representation of how one single dimension varies with
+	every other dimension. and hence the number in eigen vector for a given PCA is the factor by which given dimension varies with respective every other column
+
+
+for scaling:
+if the data is skewed , first that needs to be scaled and then followed by standardized using standardscaler.
+only if the data is normally distributed then use standardscalar else use minmaxscaler to standardize it.
+standardscaler should be after imputing outlier as outlires impact standard scaler
