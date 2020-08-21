@@ -2,3 +2,12 @@ git add .
 git commit -m "date"
 git push -f origin master  (if getting error message saying remote contains work that you do)
 else git push origin master
+
+
+Setting up git for the first time
+
+https://www.atlassian.com/git/tutorials/install-git#windows
+
+OR BELOW IS GOOD
+
+https://phoenixnap.com/kb/how-to-install-git-windows

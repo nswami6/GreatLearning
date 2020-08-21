@@ -1,0 +1,9 @@
+Course github link:
+https://github.com/wardviaene/hadoop-ops-course/
+
+Course slideware:
+https://www.slideshare.net/secret/gm8u9XU8AE0tWN?from_action=save
+
+
+Installation link:
+virtual sandbox image: https://hortonassets.s3.amazonaws.com/2.4/HDP_2.4_virtualbox_v3.ova

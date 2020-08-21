@@ -1,0 +1,198 @@
+﻿Apache Hadoop and Spark installation
+------------------------------------
+1. create EC2 instance with Ubuntu 18.04
+
+
+2. Create new user, grant root permission(ALL)
+
+sudo addgroup hadoop
+sudo adduser -- ingroup hadoop hduser
+sudo visudo
+hduser ALL=(ALL:ALL) ALL
+
+su - hduser 
+
+3. Install Java (Upload to /usr/local using winscp) and follow steps
+
+MAKE SURE THAT DOUBLE QUOTES ("") ARE REPRESENTED CORRECTLY.
+
+sudo tar xvzf jdk-8u181-linux-x64.tar.gz
+sudo mv jdk1.8.0_181 java
+
+ls
+cd ~
+sudo nano ~/.bashrc
+
+export JAVA_HOME=/usr/local/java
+export PATH=$PATH:/usr/local/java/bin
+
+source ~/.bashrc 
+
+sudo update-alternatives --install "/usr/bin/java" "java" "/usr/local/java/bin/java" 1
+sudo update-alternatives --install "/usr/bin/javac" "javac" "/usr/local/java/bin/javac" 1
+sudo update-alternatives --install "/usr/bin/javaws" "javaws" "/usr/local/java/bin/javaws" 1
+
+Verify Java installation 
+
+sudo update-alternatives --set java /usr/local/java/bin/java
+sudo update-alternatives --set javac /usr/local/java/bin/javac
+sudo update-alternatives --set javaws /usr/local/java/bin/javaws
+
+java -version 
+
+4. Passwordless SSH, follow the steps below
+
+ssh localhost 
+
+$ ssh-keygen -t rsa 
+$ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys 
+$ chmod 0600 ~/.ssh/authorized_keys 
+
+Then try ssh localhost
+5. Install Hadoop from apache web site.
+
+cd /usr/local 
+
+wget hadoop 
+
+sudo tar xvzf hadoop-3.0.2.tar.gz
+sudo mv hadoop-3.0.2 hadoop
+
+First, provide the ownership of hadoop to ‘user’ hduser [“ This will give ownership only to hduser for running hadoop services ”] using chmod & change the mode of hadoop folder to read, write & execute modes of working.
+
+sudo chown -R hduser:hadoop /usr/local/hadoop
+sudo chmod -R 777 /usr/local/hadoop
+
+
+
+Disable IPV6
+Hadoop & IPV6 does not agrees on the meaning of address 0.0.0.0 so we need to disable IPV6 editing the file…
+sudo nano /etc/sysctl.conf
+with…
+net.ipv6.conf.all.disable_ipv6=1
+net.ipv6.conf.default_ipv6=1
+net.ipv6.conf.lo.disable_ipv6=1
+
+For confirming if IPV6 is disable or not! execute the command.
+cat /proc/sys/net/ipv6/conf/all/disable_ipv6
+
+Apply changes in .bashrc file for setting the necessary hadoop environment. Setting changes with hadoop path. Locations of sbin[ “It stores hadoop’s necessary command location” ] & bin directory path are essential otherwise as user you have to always change location to hadoop’s sbin or bin to run required commands.
+
+sudo nano ~/.bashrc
+
+#HADOOP ENVIRONMENT
+export HADOOP_PREFIX=/usr/local/hadoop
+export HADOOP_CONF_DIR=/usr/local/hadoop/etc/hadoop
+export HADOOP_MAPRED_HOME=/usr/local/hadoop
+export HADOOP_COMMON_HOME=/usr/local/hadoop
+export HADOOP_HDFS_HOME=/usr/local/hadoop
+export YARN_HOME=/usr/local/hadoop
+export PATH=$PATH:/usr/local/hadoop/bin
+export PATH=$PATH:/usr/local/hadoop/sbin
+
+#HADOOP NATIVE PATH:
+export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native
+export HADOOP_OPTS=“-Djava.library.path=$HADOOP_PREFIX/lib”
+
+
+cd /usr/local/hadoop/etc/hadoop/
+
+sudo nano hadoop-env.sh
+
+export HADOOP_OPTS=-Djava.net.preferIPv4Stack=true
+export JAVA_HOME=/usr/local/java
+export HADOOP_HOME_WARN_SUPPRESS=”TRUE”
+export HADOOP_ROOT_LOGGER=”WARN,DRFA”
+
+sudo nano yarn-site.xml
+
+<property>
+<name>yarn.nodemanager.aux-services</name>
+<value>mapreduce_shuffle</value>
+</property>
+<property>
+<name>yarn.nodemanager.aux-services.mapreduce.shuffle.class</name>
+<value>org.apache.hadoop.mapred.ShuffleHandler</value>
+</property>
+
+sudo nano hdfs-site.xml
+
+<property>
+<name>dfs.replication</name>
+<value>1</value>
+</property>
+<property>
+<name>dfs.namenode.name.dir</name>
+<value>file:/usr/local/hadoop/yarn_data/hdfs/namenode</value>
+</property>
+<property>
+<name>dfs.datanode.data.dir</name>
+<value>file:/usr/local/hadoop/yarn_data/hdfs/datanode</value>
+</property>
+
+sudo nano core-site.xml
+
+<property>
+<name>hadoop.tmp.dir</name>
+<value>/app/hadoop/tmp</value>
+</property>
+<property>
+<name>fs.default.name</name>
+<value>hdfs://localhost:9000</value>
+</property>
+
+sudo nano mapred-site.xml
+
+<property>
+<name>mapred.framework.name</name>
+<value>yarn</value>
+</property>
+<property>
+<name>mapreduce.jobhistory.address</name>
+<value>localhost:10020</value>
+</property>
+
+sudo mkdir -p /app/hadoop/tmp
+sudo chown -R hduser:hadoop /app/hadoop/tmp
+sudo chmod -R 777 /app/hadoop/tmp
+
+sudo mkdir -p /usr/local/hadoop/yarn_data/hdfs/namenode
+sudo mkdir -p /usr/local/hadoop/yarn_data/hdfs/datanode
+sudo chmod -R 777 /usr/local/hadoop/yarn_data/hdfs/namenode
+sudo chmod -R 700 /usr/local/hadoop/yarn_data/hdfs/datanode
+sudo chown -R hduser:hadoop /usr/local/hadoop/yarn_data/hdfs/namenode
+sudo chown -R hduser:hadoop /usr/local/hadoop/yarn_data/hdfs/datanode
+
+hdfs namenode -format
+
+
+start-dfs.sh
+start-yarn.sh 
+
+
+
+6. In setting the Hadoop Environment section, 
+#HADOOP NATIVE PATH:
+export “HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native
+export HADOOP_OPTS=“-Djava.library.path=$HADOOP_PREFIX/lib”
+
+Make sure that HADOOP_COMMON_LIB_NATIVE_DIR has no double quotes.
+
+7. In hadoop-env.sh make sure double quotes are in tact.
+
+8. While creating datanode directory, make sure that the permissions are 700.
+
+9. start daemons. check namenode web UI at 9870. check resource manager web ui.
+
+10. Now, download the latest version of spark and extract it.
+
+11. export HADOOP_CONF_DIR and YARN_CONF_DIR to etc/hadoop
+
+12. Run python command and show that python2 is not installed. Install python. From bin directory run pyspark.
+
+pyspark example
+
+data = [1, 2, 3, 4, 5]
+distData = sc.parallelize(data)
+
+distData.collect()
