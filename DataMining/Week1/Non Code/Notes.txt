@@ -3,10 +3,10 @@ business framework:
 	1.Identify and understand the business problem, 
 	2. Data and Data types
 	   acquisition of data, try understand nature of data source (primary or secondary data source) and data collection techniques,
-	   Understand different data types whether its quantitative or qualitative- if its qualitative whether its continous or discrete
+	   Understand different data types whether its quantitative or qualitative- if its quantitative whether its continous or discrete
 		text, images, videos and audios fall under qualitative. ML algorithms dont understand qualitative and hence needs to be convered into quantitative.
 		Discrete types: binary, ordinal or categorical
-		 something that is countable or where we can calculate their frequency is discrete. something that is  measurable or numeric in format is continous data type.
+		 something that is countable or where we can calculate their frequency is discrete type. something that is  measurable or numeric in format is continous data type.
 		 certain models allow data types that are continous and some would allow both. in some cases need conversion of discrete to continous.
 		 
 		Continous types: 
@@ -19,7 +19,7 @@ business framework:
 	  But before executing the model we need to clean and transform the data.
 	  Cleaning:
 		step1: Handling missing information
-		  Various actions that can be performed: missing entire row or the column, impute or replace.
+		  Various actions that can be performed: deleting entire row or the column, impute or replace.
 		  
 		step2: imputing outliers. - First step is detection of outliers followed by decision of how to impute those.
 		  Detection:Univariate (Boxplot-IQR for continous variable), Bivariate (scatter plot), Multivariate (Residuals in linear regression. difference between actual and predicted. High residuals are outliers)
@@ -30,12 +30,12 @@ business framework:
 		       Make use of measures of central tendency(mean, median, mode) or prediction models or special cases of imputations.
 		      Using mode can be used for discrete variables. but it may not fit every time i.e like imputing missing values for genders with mode.In such a case special type of imputing might come into picture.
 		      Special cases: like for time series we use forward fill or backward fill to impute missing closing balance for a given day with opening balance for next day etc.
-		      prediction: K nearest neighbour (K-nn model) is most frequently used. It tries to understand average/median/mode behaviour of neighbouring record and uses that for imoutations
+		      prediction: K nearest neighbour (K-nn model) is most frequently used. It tries to understand average/median/mode behaviour of neighbouring record and uses that for imputations
 		
 	4.Performing transformations on data as per requirement
-		- statistical (when magniture of data in columns needs to be standarized) and non statistical (transform qualitative data into quantitative or discrete data to continous)
+		- statistical (when magnitude of data in columns needs to be standarized) and non statistical (transform qualitative data into quantitative or discrete data to continous)
 		- certain models need distance calculation between rows. in such a case unscaled data can create impact during distance calculations.
-		Statitical: Z score scaling (Standard normal distribution) or min max normalization. for models that are distance and weight based that will need this type of data pre processing.
+		Statitical: Z score scaling (Standard normal distribution) or min max normalization. for models that are distance and weight based will need this type of data pre processing.
 		  such type of transformation is not only required for distance based model but also required for weight based model.
 		  one of the important weight based model is neural networks.
 		  Clustering model and K-nn(frequency based algorithm) are distance based.
@@ -60,7 +60,7 @@ business framework:
 	   Categories of ML models to be understood: Descriptive, Inferential and Predictive modelling.
 		Descriptive: is all about data visualization (Central tendency, dispersion)
 		Inferential or predictive modelling: generally study of population using samples.
-		 however interfential is statistial analysis(study of means: z test, t test, ANOVA, Test of proportions: Chi square test, test of normality(Shapiro), Test of variances(Levene's test),Hypothesis testing). there are many more models.
+		 however inferential is statistial analysis(study of means: z test, t test, ANOVA, Test of proportions: Chi square test, test of normality(Shapiro), Test of variances(Levene's test),Hypothesis testing). there are many more models.
 			Chi square test can be used for 1 discrete variable or 2 discrete variables. for 1 discrete its called test of proportion, for 2 discrete variable its called test of independence.
 		 hypothesis testing falls under inferential category and not predictive category. however slight deviation is that ANOVA test is performed as a part of linear regression model.
 		 For predictive modelling: is study of unknown observation using known (sample) observations.
@@ -86,10 +86,10 @@ neural networks is the preferred method for big data or large datasets.
 regression model will be used if the prediction of the business problem has to be continous. i.e how much sales in future?
 classification model will be used if the prediction of the business problem has to be binary or discrete. i.e whether particular customer is likely to churn or not churn which is a binary prediction.
 
-unsupervised: clusering and association rules. There is no dependent variable or label to be predicted. 
+unsupervised: clustering and association rules. There is no dependent variable or label to be predicted. 
 clustering: hierarchical and non hierarchical clusterings are predominately used.. clustering objective is to find patterns of similarities and dissimilarities using distance based calculations. there are other methods too.
-association rules is probabality based also called market basket analysis or transaction based data. this falls under category of recommendations. i.e calculating probability that customers buy milk given they buy bread.
-unsupervised models cannot go through training and testing as it does not dependent variable while we can do for supervised training.
+association rules is probabality based and also called market basket analysis or transaction based data. this falls under category of recommendations. i.e calculating probability that customers buy milk given they buy bread.
+unsupervised models cannot go through training and testing as it does not dependent variable while we can train supervised models.
 
 
 Differences between supervised and unsupervised.
@@ -105,13 +105,13 @@ Differences between supervised and unsupervised.
 Clustering is a part of Unsupervised learning. It is the technique of grouping objects, with heterogeneity between 
  groups and homogeneity within the groups. It can follow Agglomerative, Divisive or Partitioning approach.
  Distance calculations are done to find similarity and dissimilarity in Clustering problems.
-Distance between the clusters should be greater than that of within the clusters. (SSB > SSW). objective with which clustering techniques work.
+Distance between the clusters should be greater than that of within the clusters. (SSB > SSW). this is the objective with which clustering techniques work.
 cluster techniques need data preprocessing.
 if distance is smaller they are similar and if larger they are dissimilar.
-unsupervised learing happens when we dont have target label.
+unsupervised learning happens when we dont have target label.
 clustering can also be used as preliminary step for the supervised learning as we will be able to identify a new cluster/label column that is discrete variable which can be newly created on the dataset to proceed with supervised learning using tecniques like classification technique.
 
-One example clustering use case: in order to cluster web pages (with objective of optimizing it), textual data can be converted to quantitative information followed using NLP followed by clustering techniques to identify similar pages and group them.
+One example for clustering use case: in order to cluster web pages (with objective of optimizing it), textual data can be converted to quantitative information followed using NLP followed by clustering techniques to identify similar pages and group them.
 
 clustering vs PCA: clustering is finding similarities or dissimiarities between rows based on their distance,
 		wherease PCA is about dissimilarity between columns using variance.
@@ -152,10 +152,10 @@ Wards linkage: similar to group average and centroid distance.
 	the cluster whose mergers with least resulting within cluster variance will succeed.
 
 Definition of centroid: 
-The middle of a cluster. A centroid is a vector that contains one number for each variable, where each number is the mean of a variable for the observations in that cluster. The centroid can be thought of as the multi-dimensional average of the cluster
+The middle of a cluster. A centroid is a vector that contains one number for each variable, where each number is the mean of the variable for the observations in that cluster. The centroid can be thought of as the multi-dimensional average of the cluster
 
 strength: number of clusters can be arrived based on running the model and then choose desired number of clusters based on dendrogram by cutting the cluster tree at optimal position.
-	it corresponds to meaning taxonomy.
+	it corresponds to meaningful taxonomy.
 
 weakness: not good with too large datasets. also highly sensitive to outliers.
 
@@ -185,7 +185,7 @@ Indirect model evaluation techniques which we can verify once clustering procedu
 Once clustering procedures namely K means that is distance based is completed there are indirect model evaluation technique that can be used to verify.
 
 Silhoute scoring technique is one such. It validates if the mapping of observations to clusters are correct or not.
-This includes computation of distance between each observations distance between itself and every established centroid to determine if there are any other centroids outside current cluster whose distance could be the shortest for the given observation.
+This includes computation of distance between each observations i.e distance between itself and every established centroid to determine if there are any other centroids outside current cluster whose distance could be the shortest for the given observation.
 silhoute width=(b-a)/max(a,b) which if returns positive value the observation is valid in its alignment to its cluster where b and a are distance between the observation with neighbouring centroid and current centroid respectively.
 silhoute width ranges between -1 and +1.
 if silhoute width=0 then the values are equidistant from both centroids and it means they are not actually seperable.
@@ -197,7 +197,7 @@ wss plot/distortion plot helps to know how many clusters are needed as output in
 WSS plot stands for within sum of squares plot. also known as distortion plot or error plot.
 
 This operates with the notion that within sum of squares (variance) will be high for K=1 but when k begins to increase the sum of within sum of squares across clusters will start reducing from K=1.
-However as keep adding K there could be a point where the drop of WSS may not be significant.
+However as number of clusters increases (i.e incrementing K ) there could be a point where the drop of WSS may not be significant.
 WSS=sum of square of differences between centroid and each observation for each observation within a cluster
 
 the plot has Total WSS in y and K in x

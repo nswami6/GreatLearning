@@ -1,0 +1,94 @@
+Decision tree can be used either for classification or continous regression, however majority use case is for classification.
+When it comes to supervised learning, basic first action is to figure out dependent and independent variables.
+Using the independent variables, the classes in the dependent/target variables are split into purity and impurity.
+Based on the split resulting from decision tree the resulting model which after the model training and subsequent testing can be used for prediction of the target variable using the appropriate independent variable.
+
+Decision tree contains: Root node, Decision node, leaf/terminal node
+Split of a node into child nodes happens using independent variable. We should always look for categorical information in the indpendent variable. Even if its continous variable it will be bucketed into bins to make it categorical. The child node will be observed based on alignment to predominant number of targets among the classes.
+The node being split whose records can be a mix of total number of target(success  criteria) and the rest, will be further
+	split into child nodes based on the independent variable and the child nodes will now represent new record count as per 
+	independent variable and we shall observe corresponding target count in this child node which might contain mix of 
+	more than one category of the classes.
+If the split of a node results in child nodes that are purely classified to one category they are called pure nodes else impure nodes.
+separation of purity (1's) from impurity(0's) is the objective of decision tree.
+The class information in node is combination of target and non targets.
+
+if there are more than 2 dependent variables there are splitting techniques accordingly. One of them is Gini index.
+How many times a node is split depends on the purity of the node. Resulting impure nodes continue the need for splitting.
+splitting the nodes does not always have to be on binary variable , as it could split into more than 2 child nodes. 
+	resulting child nodes can be mixed node with purity and impurity. but if the node is closest to impurity or 
+	purity is what we need to look at .
+Ensuring branches are not overgrown is done thru pruning techniques.
+
+Data treatment during classification:
+	Watch out before suggesting default values for independent variable or presence of Null/NA values to avoid dilution/failure of spliting logic. Null makes its own category.
+	try capping extreme values/outliers into one bucket.
+	Try grouping data in independent variables as it might be necessary upon validation. like multiple NE states to single NE region.
+	since classification is not distance based we dont have to scale the variables but need to convert non integers to integers using codes function in python.
+
+Classification techniques:
+CART: Binary decision tree, can be used for both classification and regression, uses gini index to measure impurity.
+CHAID: Non binary decision tree, uses chi squared test (chi squared test for 2 categorical variables: null hypotheses says 2 categorical variables are independent when compared to dependent variable - meaning they can introduce meaningful seperation of 0's and 1's).
+
+CART
+	The independent variable with highest gini gain has the better relevance in seperating 0's and 1's.
+	lesser the gini index more the purity is observed in that particular node, greater it is greater the impurity.
+	Difference in outcome of trained data and tested model can be result of over fitment during training.
+
+	Advantages: No data preprocessing required (transformation/outliers/missing values), automated field selection and easy to interpret.
+	Disadvantages: Small changes in the data can result in large difference in the decision tree output and hence Decision tree could become unstable. often inaccurate compared to other models, not prefered for continous prediction.
+	
+	Limitations: Over fitment, greedy algorithm 
+	Over fitment can be attended to by pruning.
+	Greedy algorithm: When root node is being split into child nodes it does not take future state of the model. It is greedy when choosing best independent variable for splitting.
+	Greedy algorithm can be overcome by cross validation (called k fold cross validation). It helps address over fitting by helping to see how good the model is with completely unseen data.
+
+While building CART model we have to ensure all object data type are converted to integer data type.
+random state should be set when calling train_test function in Python to ensure consistency of output across and within systems.
+To view the decision tree created in the Python code graphically, dump the decision tree into output file, cut and paste the file content to www.webgraphviz.com for a good view of graphical decision tree.
+While pruning the decision tree to reduce the depth of the tree that is not uniformly growing across the branches (resulting in overfitment), go with setting max_depth, min_sample_leaf(minimum observations required in the resulting child node to proceed with split) and min_sample_split (minimum observation in the node being split). Please note as per industry standards min_sample_leaf shall be set to 1 to 2 or 3% of the data and min_sample_split will be set to 3 times the min sample leaf 
+Pruned decision tree can be referred to as regularized decision tree.
+Pruning may end up in over pruning also.
+Feature_importances_ component of decision tree model in Python can guide to which independent variable contributes to how much in splitting the data and hence assist in picking the independent variable with higher value and remove variable/column with low value from being used in the  model. 
+
+Model evaluation techniques, Model performance measures: To establish confidence on how model will perform in future.
+
+Model evaluation method: Confusion matrix, ROC curve (Receiver operating characteristics curve)
+
+confusion matrix- A tabular structure reflecting the performance of the model in n * n blocks
+	For binary it will be 2 * 2 tabular structure, and based on more classes the matrix can increase to 3*3 , 4*4 ... n*n
+	False positive are type 1 error and false negative are called type 2 error. we expect low values for these.
+	TP and TN should be high. type 2 error and sensitivity are inversely proportional.
+	Accuracy - How accurately model has classified the data points. (TP+TN)/(TP+TN+FP+FN)
+	sensitivity/recall (Type 2 error)- How many true positives the model managed to capture without loosing them into negatives falsely. TP/(TP+FN)
+	specificity- how many actual negatives have been captured correctly by the model without loosing them into positives falsely. TN/(TN+FP)
+	precision (Type 1)- how many positives are really positives . TP/(TP+FP)
+
+	deciding between accuracy, recall and precision depends on criticality between type 1 and type 2 error.
+	spam email can be an example. i.e gmail type 2 (FN) issues are costly as one could miss an offer letter for example. alternatively emails with virus ending up in inbox instead of spam is type 1 (FP) error which is costly.
+	hence one can observe gmail having more type 1 error and office outlook emails having more type 2 error.
+	if both type 1 and type 2 are costly we can either go for accuracy or F1 score.
+	F1 score=harmonic mean of sensitivity and precision.
+	F1 score is balancd between precision and recall
+
+ROC Curve - Visualize the output of clasification model. 
+	Graph calculated between TP rate (TP/total actual positive) and FP rate(FP/(total actual negative)) in confusion matrix.
+	Graph plotted between 0 to 1 in both axis with FP in x axis and TP in y axis.
+	Based on the cut off for FP (i.e 0.2) we can take the equivalent TP rate which tells us how good is the model.
+	curve closer to x axis is conservative and strict in classifying postiives while classifiers higher towards the right are high in TP and are liberal in classifying positives.
+	Best case of ROC is a steep curve with right angle at x=0 and reaching the maximum at y and x at 90 degrees.
+	flatter the ROC, weaker the model.
+AUC
+	Area below the curve in ROC. Larger the AUC better the model.
+
+Test samples are also called hold out samples.
+
+
+
+
+Questions
+How are class values in the list mapped during the actual processing of export_graphviz. i.e when predicting probabilities how did we selecting second column for positive outcome?
+How is the roc_curve function determining FP and TP. i.e how is the confusion matrix deciding which one are the false and trues?
+why should the ROC be right angled and not a vertical line at x axis=0 or -even lesser number
+
+	

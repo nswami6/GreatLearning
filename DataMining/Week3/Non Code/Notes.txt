@@ -1,0 +1,43 @@
+Ensemble technique:
+	Decision taken using wisdom of a crowd
+	if individual decisions are taken then it is singular technique with all the trust in one basket. However in ensemble method we are building hundreds of models and take average of those models towards making final decision.
+	key strength of the technique is to have every model we build has to be independent of each other. And the assumption is decisions made by each model is not corelated with each other or influenced by each other.
+	several models across decision tree of ensemble method is also called base estimator.
+	Class with most votes becomes models prediction.
+	A large number of relatively uncorrelated models (trees) will outperform any of the individual models.
+	Bootstraping and choosing smaller number of variables as splitting criteria for the decision tree will have to ensure models are uncorrelated to each other.
+
+Random forest: Forest of trees.
+	CARD model is what is used by default in order to construct multitude of models.
+	In this we create multiple decision trees. models for each tree are different and independent of each other.
+	There should be variation among decisions tree when it comes to its data and parameters.
+
+	Boot strapping helps in setting up the randomness across the trees.
+		drawing multiple random sample with replacements of data is called boot strapping  and use random set of independent variables at each split to make multiple decision tree with reduced variables on the bootstrapped data sets.
+		we combine the predictions across the tree to obtain the final decision.
+		we use voting principle in case of classification model (for categorical variable) for prediction and we perform averaging for continous prediction	
+		Original Data set shall be sourced in such a way to populate multiple trees with unique combinations of data including potential duplication of same rows from original dataset
+	 	Columns can also be randomly sampled from the original dataset across the decision trees. i.e smaller number of columns are used for splitting criteria. Decision tree uses gini index and gini gain to pick the best independent variable to split the data at each node
+		Before the split happens the columns are randomly selected which are used further validated to narrow down the best independent variable.
+		choosing the smaller number of independent variables reduces the probability of corelation compared to using larger number of independent variables. However this reduction reduces the strength of the prediction.
+		We need to find a optimal range of number of independent variables to maintain the balance between prediction strength vs corelation.
+	Properties of each decision tree (desirable):
+		prediction strength of each individual tree must be high
+		decision tree must not be corelated to each other.
+
+	Out of bag data points: (used to measure accuracy of the random forest)
+		Sample records not present in the boot strapped datasets compared to original data set is called out of bag. we use out of bag to make predictions.
+		Every decision tree will undergo prediction for the out of bag records with respect to every individual boot strapped data set.
+			Ultimately an error value is calculated by random forest towards how well the all models has performed for all the out of bag records in being able to predict for them.
+			proportion of out of bag samples incorrectly classified is called out of bag error.
+		Approximately 1/3rd of the original dataset does not end up in the bootstrapped datasets and ends up in out of bag.
+
+		Probability of 1 row getting sampled from the original dataset into the boot strapped dataset is 1/n
+		probability of 1 row not getting sampled from the original dataset hence = 1-1/n
+		probability of n row not getting sampled from the original dataset hence = (1-1/n)^n
+		When n becomes very large (infinite) then 
+			probability of n row not getting sampled from the original dataset =1/e =37%(e is expontential)
+		Hence out of bag data points = 37% and the remaining 63% is what we call as in sample records ending up in each of the bootstrapped dataset uniquely.
+			
+	
+
