@@ -42,6 +42,7 @@ CART
 	Over fitment can be attended to by pruning.
 	Greedy algorithm: When root node is being split into child nodes it does not take future state of the model. It is greedy when choosing best independent variable for splitting.
 	Greedy algorithm can be overcome by cross validation (called k fold cross validation). It helps address over fitting by helping to see how good the model is with completely unseen data.
+	During grid search every combination of hyper parameters across param_grid settings will be put through this cross validation.
 
 While building CART model we have to ensure all object data type are converted to integer data type.
 random state should be set when calling train_test function in Python to ensure consistency of output across and within systems.
@@ -83,6 +84,7 @@ AUC
 
 Test samples are also called hold out samples.
 
+business rules can be derived from decision tree based on the conditions that decision node uses for predicting target class.
 
 
 
