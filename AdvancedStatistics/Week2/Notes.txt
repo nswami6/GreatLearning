@@ -1,3 +1,6 @@
 value_counts can be done only on object and not numeric as it needs to be done on categorical field where there could be uniqueness
 
 if there are outliers impute with median and not mean.
+
+
+independent variables should be categorical and dependent should be continous. however we can consider continous variables for independent variable if they have high correlation with dependent variable.

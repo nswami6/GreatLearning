@@ -1,0 +1,120 @@
+Neural networks are considered black box technique as much about what happens within the algorithm is not known to us.
+understanding nature and behaviour can be done but retrieving or calculating the values by those algorithm cannot be done.
+Slope and intercept concepts help us understand the model.
+Similar to a biological neural network, an Artificial Neural Network has the ability to learn, generalize and adapt. It is made of 3 layers-Input, Hidden and Output layer.
+Its a modern machine learning technique extended to deep learning.
+
+A perceptron takes several inputs and produces a single binary output which is determined by whether the weighted sum is greater than or less than a thresholdvalue
+
+ANN is a machine learning algorithm based on how biological brain functions as that is replicated for datasets and data science in general.
+Mimics how brain works when it comes to information.
+
+Models the relationship between set of input signals (independent variables) and an output (dependent variable). 
+highly similar to biological brain responding to stimulus from sensory inputs.
+A signal in the body passes through the synaptic nerves to the brain where the information is collectively processed using millions of biological neurons and output is sent back to the point of same input 
+Brain uses network interconnected cells called biological neurons to provide learning capability. we mimic it using artificial neurons in ANN.
+
+why neural network
+biggest strength of neural network is it learns by itself the functions based on sample input and has high ability to generalize the same.
+its adaptability - w.r.t changes to data.
+
+architecture: 3 layers (input, hidden, output) .
+	hidden layers can be one or more adding more neurons.
+	network having only one set of connection weights (i.e connecting input node to the output node) is called single layer network.
+	weights are synonymous to nerves. 
+	In Neural network, nodes across layers are connected through synaptic waves called weights
+	all the layers are connected through synaptic weights that are random numbers mathematically arrived which is multiplied with input and stored as mathematical figures or magnitudes in neurons from which it is computed as output. the output can be continous or discrete prediction.
+	activation function converts continous prediction to categorical or discrete predictions. 
+
+concepts of NN:
+	Neuron:
+		A neuron is an information-processing unit that is fundamental to the operation of a neural network.
+		Three basic elements of the neuron model:
+			–Synapticweights
+			–Combination (Addition)function
+			–Activation function
+		External input bias to increase or lower the net input to the Activationfunction
+
+	First iteration assigns random weights against synaptic waves.
+	Deriving summation: input values are multiplied by waves and stored in target neurons as summation of all such products from the input nodes to each and every neuron in the subsequent layer. This logic forwards until the output node to give the predicted value.
+	Predicted value and actual value compares to give the loss function or magnitude of error. Hence this is followed by iterations to adjust the weights towards reducing the error with the objective of matching predicted value with actual value i.e no error in prediction.
+	Loss function will be used to modify the weights for subsequent iterations.
+	Most common measure of the Error (cost function) is mean square error E = (y –d)^2
+	Cost functions example: Quadratic cost function, cross entropy cost function.
+	Iterations of the above process of providing the network with an input and updating the network’s weight to reduce error is used to train the network
+	Having 100% accuracy in prediction will be overfitment and hence generalization aspect of NN will come into the picture.
+	Loss function will have to compute modulus of difference between predicted and actual as the summation of all such values across all the records in the dataset does not cancel out each other due to negative entries.
+	bias is the additional component that is applied to derive the summation as a mitigation to a situation where all input values can potentially be 0.
+	bias is an intercept term that tries to avoid prediction of zero.
+	
+	Activation function:
+		While above explains the prediction of continous values, for predicting categorical values, we need to apply activation function.
+		In activation function we could introduce a cut off (at 0) value approach. This is referred to as activating the continous information and transforming it into categorical prediction . Activation triggers after summation. 
+		objective of activiation function  are to probability as the final prediction score instead of giving continous output.
+		Types of activation function: Unit step, sigmoid, RELu (Rectified linear unit), Tanh
+		It's a Mechanism by which the artificial neuron processes incoming information and passes it throughout the network.
+		Threshold activation function -as it results in an output signal only once a specified input threshold has been attained.
+
+feed forward network:
+Networks in which the input signal is fed continuously in one direction from the input layer to the outputlayer
+
+Loss function:
+	Objective is to reduce the loss value by updating the weights.
+	it should be differentiable.
+	However the action would be to increase or decrease the weight which needs to be decided during the iterations. This is where we perform differentiation on loss function.
+	Differentiating a function tells us rate at which function is moving and its direction. negative value means decreasing and vice versa.
+	One of the key requirement of loss function is it should be differentiable in nature. Hence we go for squared error value (squaring the residual) instead of modulus which enables punishing larger error from the model and vice versa. This enables better differentiation of loss function (due to square values) and provides us with rate and direction at which loss function is moving.
+	differentiating loss function makes sense with very large datasets. as the model deals with intensive computation this step becomes important to check the progress.
+	differential function uses optimization parameters towards reducing error . one of the famous parameters in NN architecture is stochastic gradient descent (SGD).
+	Uses SGD for optimizing the neural network.
+
+Stochastic gradient descent:
+	error forms parabolic transition for various weight values. for different input values of weight ,error will have high or low value but forms a parabolic conversion.
+	optimal point to obtain is to get the weight that puts the error value at the point of global minima.
+	Based on the error position in parabolic curve, we find the first order differential to find out in what direction weight has to be changed. if positive, reduce the weight towards moving to the optimal minimum. if error is negative increase the weight.
+	SGD technique approach is to move from suboptimal error point to most optimal or least error 
+
+Back propogation:
+	Indicates updates of the weight happens from output to input (i.e in the reverse direction of the architecture).
+	ANN uses Back propogation in addition to SGD.
+	Error propagated backward by apportioning them to each node's weights in proportion to the amount of this error the node is responsible for
+
+Model goes through mulitple iterations to optimize the loss, however there should be a stopping criteria which is threshold. i.e 0.1, 0.01, 0.001
+Lower the threshold longer/slower the model executes with higher accuracy and vice versa. if the iteration results in loss not meeting the difference between the latest 2 iterations by threshold the algorithm will stop.
+Theshold is passed to the differential function (i.e loss function).
+
+Programming:
+MLPClassifer package is used for ML problems whilefor deep learning and larger datasets we use packages such as tensorflow, keras...
+create dataframes for independent and dependent variables
+
+create train and test data.
+scale the training data. i.e Standardscaler  ... fit_transform
+we dont fit and transform the test data but only transform to the standardscaler object where the training data is fitted.
+The above is because we should not disturb the distribution of the scaling done on the trained data and the ensure that the scaling of test data happens as per the scaling properties for training.
+Also do not scale the larger dataset before splitting them to training and testing so as to enable keeping the population parameter for training dataset anonymous to the testing dataset. This allows for better validation of the model during testing. Also cross validation parameter enables better training of the model using the training dataset.
+
+Classify using MLPClassifier and apply hyper parameters such as hidden_layer_sizes, max_iter, solver, tol (i.e tolerance/threshold).
+hidden_layer_sizes can be square root or square of number of independent variable. verbose ensures output is printed if set as True. 
+Fit the model with training data and predict for test data.
+Model will report error on execution if convergance of the model has not happened within the set iterations which may need attending to the decreasing the threshold level.
+Despite improving the threshold level if the model could not converge it could be because of very low tolerance level but lesser will be the accuracy.
+
+Just like Random forest we can do grid search for NN too. hidden_layer_sizes can be modified for number of neurons and by number of layers for trial and error.
+grid search cross validation can be used for any of the classification or supervised machine technique available in sklearn package.
+Model evaluation: 
+Classification report, confusion matrix
+AUC score and ROC curve.
+
+model tuning: Gridsearch
+
+model validation: Cross validation, AUC, RAC, confusion matrix, classification report.
+
+Threshold to check of the model is overfitted is to check if the training and testing differs in accuracy by +/- 10%
+
+Question 
+Why to convert some variables to categorical after reading from csv (if required)?
+Explain the bias part of NeuronOutput = fn ( ????*????????=1+bias)
+what is non negativity property of cost function. also globally continous!
+what is the optimal value for CV, iteration parameters?
+when to start with multiple layers to avoid over fitting.
+for continous classification should the activation function to be used? like linear ones..

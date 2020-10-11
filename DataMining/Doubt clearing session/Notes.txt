@@ -1,0 +1,51 @@
+learning rate by standards is 0.01 in neural network
+neural network will never give importance to the variables.
+if we have to consider importance of features as well as highly performing model, we use CART to derive importance of variables
+	from which we use make some decisions as well as use neural networks to get the output.
+
+if one has to divide the data due to performance, splitting has to be on random.
+
+valid vs invalid outlier: based on the data . like age > 130 etc is invalid while huge income could be valid.
+categorical data type could be represtented by int8
+
+missing value treatement is mean , median or mode whereas  outlier will be min or max whisker.
+
+if 30 to 40% of rows have missing values its better to drop that column as imputing will not be a good approach.
+
+do value_counts on categorical variables during univariate analysis to understand the data buckets.
+
+store categorial column names and continous column names across two variables for a quick references or for loop iteration during analysis etc.
+
+if the target value % is below 20% its imbalanced. CART will give result based on majority class.
+
+after encoding based imputation of categorical variable , the data type will change to int8 which after imputation changes to int64 and it again needs to be changed to int8
+during grid search keep CV between 5 and 12 to avoid over fitting by going beyond this range.
+
+feature_importance will not be present in neural network model.
+
+while scaling of data is mandatory in clustering it is not so for classification/decision tree and neural network. however neural network will work better on scaled data in terms of performance.
+
+
+while building confusion matrix always pass actuals first in the parameter followed by predicted to get the result with actuals in rows and predicted in columns with 0 as first row and column and 1 as second row and column.
+
+always use f1 score whenever there is an imbalanced classification
+
+recall , precision and accuracy is the order of weigtage of metrics for model validation? in certain cases for all 
+	4 elements (TP/F, FP/F) of confusion matrix is important then ROC and AUC would come into picture else go by 
+	domain needs mapped to metrics in classification report.
+	However every metrics is interlinked.
+
+always start n_estimator with 100, 200, 300, 400. always round it off as multiples of 50's or 100's
+
+compare feature importances across models.
+
+Any good new volume of additional data come into the dataset after model build it has to be rebuilt.
+
+One can add prediction label to training or testing data set in a dataframe and export to files for further analysis or sharing with business team.
+
+neural network best grid approach:
+for solver always use adam for large datasets
+iteration should go beyond 5 to 10% of record count.
+default activiation function is ReLu and it is the best.
+
+

@@ -1,0 +1,5 @@
+Imputing the data should not change the central tendency too much i.e mean, median... in such a case where there is
+	an impact to the central tendency one can look at deciding on removing the outliers rather than imputing.
+
+Sometimes we might have to choose ML algorithms which might not be impacted by outliers and check the outcome before we 
+	choose to proceed with outlier imputation for other algorithms that needs that step.

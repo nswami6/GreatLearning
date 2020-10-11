@@ -1,0 +1,11 @@
+All the models have performed almost equally with short difference between each other from accuracy stand point.
+Hence CART model has performed better in this case providing highest accuracy level. 
+
+Given the fact predicting both classes of customer's who will end up claiming and those who will not claim are important 
+towards being able to come up with appropriate recommendation, accuracy becomes an important factor here. This way
+the model that best controls both type 1 and type 2 error would enable efficient overall classification from prediction 
+perspective. Accordingly CART model fairs better comparatively here with 78% accuracy on the test data.
+
+Also the fact that F1 score of claims(63%) being the highest compared to other models there is a fair chance of better 
+prediction of actual claims that will impact the profit and loss of the overall performance of the insurance plans.	
+

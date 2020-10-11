@@ -121,14 +121,14 @@ In PCA we reduce dimensions but in clustering we dont reduce the rows on which i
 Distancing types: Eucledian distance, Manhattan distance (city block), Chebyshev distance, minkowski distance (toggles between eucledian and  manhattan based on p value)
 metrics intended real valued vector spaces: for continuos data types with decimal points.
 for two dimensional : Haversine metrics can be used. i.e for example for distance between latitude , longitude measures
-for integer valued continous dataspace: hamming, canberra, braycurtis metrics. not necessary this the metrics for integer. we can use metrics from real valued vector spaces.
+for integer valued continous dataspace: hamming, canberra, braycurtis metrics. not necessary to go with this metrics for integer. we can use metrics from real valued vector spaces.
 for boolean valued vector spaces: jaccard is popular for boolean. others are can be found in reference link
 
 referencefor different distances:
 https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.DistanceMetric.html
 
 clustering types: Agglomerative, divisive, partitioning.
-agglomerative clustering: starts with maximum clusters by each row and ends with one. advantage of this type is helps to identify even small size clusters whereas divisive is applicable for large datasets
+agglomerative clustering: starts with maximum clusters by each row and ends with one. advantage of this type is it helps to identify even small size clusters whereas divisive type is applicable for large datasets
 Divisive: opposite of agglomerative clustering. for 1000 rows of data starts with 1 cluster and ends with 1000 clusters.
 partition clustering: directly partitions the data by as many clusters. K means clustering. it does vector paritioning wherein each partition is a cluster . intra cluster distance is minimized and inter cluster distance is maximized using vector paritioning technique.
 
@@ -162,7 +162,7 @@ weakness: not good with too large datasets. also highly sensitive to outliers.
 dendrogram: tree like diagram. x axis is rows in the datasets. y axis determines distance between the records/clusters.
 	: greater the height in Y higher the dissimilarity across records/clusters.
 
-Scaling needs to be assessed for the dataset ahead of proceeding with hierarchical clustering.
+SCALING NEEDS to be assessed for the dataset ahead of proceeding with hierarchical clustering.
 
 1.4 K Means Clustering
 It is a non-hierarchical clustering approach where we specify the number of clusters needed as output lets say, k.
@@ -198,7 +198,7 @@ WSS plot stands for within sum of squares plot. also known as distortion plot or
 
 This operates with the notion that within sum of squares (variance) will be high for K=1 but when k begins to increase the sum of within sum of squares across clusters will start reducing from K=1.
 However as number of clusters increases (i.e incrementing K ) there could be a point where the drop of WSS may not be significant.
-WSS=sum of square of differences between centroid and each observation for each observation within a cluster
+WSS=sum of square of differences between centroid and each observation  within a cluster
 
 the plot has Total WSS in y and K in x
 

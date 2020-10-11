@@ -1,0 +1,16 @@
+Attribite ,Description
+age,age
+workclass,workclass
+fnlwgt,samplting weight
+education,highest education
+education-no. of years,number of years of education in total
+marrital status,marrital status
+occupation,occupation
+relationship,relationship
+race,race
+sex,sex
+capital gain,income from investment sources other than salary/wages
+capital loss,income from investment sources other than salary/wages
+working hours,nummber of working hours per week
+native-country,native country
+salary,salary
