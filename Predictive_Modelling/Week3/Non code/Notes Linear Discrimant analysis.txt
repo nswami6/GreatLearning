@@ -1,0 +1,151 @@
+LDA is a classification technique. It's response variable is a label.
+
+LDA deals with use cases where all the classes are known upfront. this is not the case when pincodes keep adding as more 
+		data comes in. In such a case LDA and LR does not fit in.
+
+Two ways: Linear discriminant analysis, Quadratic discriminant analysis. based on the kind of function they use to classify a new observation.
+
+LDA
+Just like LR in LDA we use linear combinations of independent variables to predict the class in response variable. LR uses Logit function.
+Independent variables are normally distributed. i.e they are continous and numeric.
+if independent variables are categorical variables we need to convert into numeric variables. X must be number and are normally distributed.
+LDA finds the best line of discrimination of 0s and 1s and does that by searching or optimizing the linear combinations.
+	it can do that numerically or by using algebraic formulations or minimization formualaes derived from calculus and linear algebra. thus finds optimal seperating plane.
+	this concept is used in Support vector machine (SVM). 
+	such classification done by LDA can be multi class also.
+
+application:
+separate 0s and 1s
+recognition job like object recognition. i.e faces or not faces, vehicles or not... 
+pattern recognition (images and text)
+when it comes to data risk prediction, identify behaviour, customer attrition
+
+assumption 
+1.X should be normally distributed 
+2.variance of distributions of X across various classes should have same variance. this assumption can be relaxed in future.
+		this assumption allows developing math structure that ends up in linear decision boundary. i.e allows discriminate between classes in the group by a line. Purpose of the line is divide the classes probablistically.
+		even if this assumption is violated LDA does a decent job and robust.
+		
+	
+QDA (Quadratic discriminant analysis)
+	more lenient than LDA. It uses quadratic combinations as against to linear combinations 
+		check quadratic equation that attends to lineancy in assumption relaxation on equal covariance across X.
+	assumption on equal covariance across X does not exist. function that seperates X's across classes need not be 
+		straight line but quadratic to attend to this. 
+	however LDA  can handle moderate differences in variances and co variances.
+	but normal distribution of X's still holds good.
+	Note; It can handle moderate difference in the variance of X's.
+	Like LDA creates linear decision boundary to divide classes QDA does it through quadratic decision boundary.
+
+application:
+pattern recognition: Data , images.
+risk prediction, identify /predict certain behaviour.
+
+Score is called discriminant score.
+
+example of discriminant functions: Altman score. 
+
+scaling x's results in standardized coefficients as in regression. i.e co efficients can be made independent of units by scaling X's.	higher the standardized coeffcients allows better distinguishion of 0's and 1's.
+essentially we are finding relationship between corelation of independent variables and co efficients in discriminant function.
+these corelation are leveraged by the model to find the best discrimination in the settings of independent variable.
+Note: in Linear regression corelations are not good for it.
+
+so 2 ideas: how can I find co relation between X's while discriminating 0 and 1s in Y. LDA prefers to have corelated data whereas in Linear Regression co relation is not good for it.
+
+LDA does to X's what unsupervised technique like PCA and factor analysis do to reduce dimension and try find the structure in the X's to find different distribution of X across various values of Y to identify seperation between them.. take advantage of co relation. so methods in LDA reminds of unsupervised learning but application is supervised learning.
+LDA draws a line between supervised and unsupervised techniques. 
+Logistical Regression approach in a way that if you provide an X it gets probability of X being 0 or 1 while LDA turns this and says if Y=0 this is distribution of X and if y=1 then whatever is the distribution of X.
+i.e Log Reg takes X as fixed and predicts Y while LDA is reverse of it. LDA borrows learning from unsupervised learning and solve supervised problem.
+meaning explain most of the variability between class rather within the class. between class is ANOVA type calculation whereas within class is like PCA type calculation.
+
+ANOVA will be applied when X is categorical and Y is continuous while regression is its converse.
+However ANOVA, linear regression, LDA are ways of supervised learning with different kind of X's and different kind of Y's
+LDA expects X is numerical and Y is categorical.
+
+Diff between Logistical regression and LDA:
+operations on the data that LDA does is similar to PCA and factor analysis to get the understanding of corelationship of the data. methods of LDA is related to unsupervised while application is supervised.
+Logistical regression says give me an X and I will give Y. LDA says if Y=1 this is distribution of X and if Y=2 this is the distribution of X.
+LDA essentially divides data sets into classes/groups and once it has done that looks at X's and applies unsupervised learning to find the structure in the X's. 
+	And applies PCA, eigen values, eigen vectors and find distingution between distribution of X's and therefore seperate two Ys.
+	Logistic regrssion takes X as fixed and predict Y while LDA takes Y as fixed and tries to understand the difference in X's.
+	essentially borrowing unsupervised learning to solve a supervised problem is LDA.
+	Also it tries to understand the seperation of classess by investigating to explain most of the difference is due 
+		to variance between the class more than the variances within the classes.
+
+
+When LDA is used:
+when classes are well seperated
+	in this case Logistical regression gives multiple best fit line and looses stability and hence LDA comes in.
+data is small
+	smaller the dataset less you can estimate and few co eff to estimate. as long as X's do not grow model scales as equation does not change and co efficients does not add up.
+	for large datasets as more data comes in learn more and more structure. this is where LDA looses its predictive power compared to other non linear and ML methods.
+have more than two classes
+	in case of logistical regression we will have to change the model when more clasess add up. but LDA is a better fit as it naturally extends with additional classes.
+	so when you have large number of classes, got to start with LDA.
+
+how LDA work:
+	PCA, LDA are topics typically presented as sub topics of multivariate statistics. also topics in statistical and ML.
+	compute mean vectors, compute  between class variance and within class variance like factor analysis does, 
+	variance calculations are computed using eigen vectors which are principal components and seperating hyper planes. 
+	eigen values are variances.
+	after eigen vectors calc is done, then compare eigen values  with variances computed then eigen vectors becomes linear transformations.
+	these linear transformations taken seperately for different classes begins the algorithm for doing the LDA.
+	do within and between class variances to find the seperating line.
+	summary: eigen analysis leads to principal component like calculation that inputs into ANOVA decomposition.
+		ANOVA decomposition tells whether LDA is going a good job or not.
+
+LDA model representation:
+	Model computes mean, variance and co variance matrixes. so for taking back linear equation and reversing it to those properties more calculations are required.
+	however predictions are made providing those statistical properties to LDA equation which can be run offline.
+	these equations are required only when we need descriptions to justify each classes among the classification.
+	however that is not required for pure prediction purposes.
+
+How are the predictions done?
+	Bayes theorem.
+	probability of each classes (Y) comes from proportion in the data originally. This is called prior probability
+	probability of Y=1 given X or Y=2 given X.... is called posterior which is the focus here.
+	How to go from prior to posterior? Bayes theorem: probability of A given B is taken by getting probability of B given A multipled with correction term.
+	correction term = P(A)/P(B)  i.e P(Y=0/X)=P(X/Y=0)*(P(Y=0)/P(X))
+
+	common sense definition: Give me the most likely outcome given my data begining with most like outcome without my data (using data proportion). 
+	Bayes calculation thinking comes from PCA + ANOVA approach. which is why LDA extends so easily to multiple classes. Bayes theorom is not defined or limited for 2.
+	some of LDA uses Bayes theorem and some goes through eigen analysis based on different softwares. either way gets the same answer.
+	ML tends to prefer Bayes approach.
+
+Two theories for LDA: Fishers and LDA.  Fishers create new axes in an optimized way based on between sum of squares divided by scatter for each classes which sum of squares within classes.
+Bayers goes by prior probability changing to posterior probability thru conditional probability as X's are introduced into the probability. it takes the class with highest probability accordingly as prediction.
+custom probability cut off enables altering the probability cut off for determining class predictions as per accuracy, precision and recall targets for model optimization/regularization.
+
+
+Summary
+LDA first does a dimension reduction technique with data that corresponds to classification problem 
+	and post that seperate classes in the lower dimensional space using Bayes theorem which does a better job than logistical regression when classes are well seperated.
+	LDA is converse of ANOVA but both are same when it comes to considering expressing the dependent variable as a linear combination of independent variable.
+Original variables to be standardized to created standardized co efficients which will independent of units of original variables that could vary across each other.
+program
+sklearn has libraries for supervised learning.
+if data distribution is not balanced among classes below a threshold we go for balancing approach like under sampling, over sampling etc.
+for LDA , parameter prior = none means it will take data distrition percentage as it is.
+more corelation among variables more the dimension reduction that PCA can accomplish in the LDA algorithm.
+algorithm computes posterior probabilities and returns the class with highest posterior probabilities.
+ANOVA's principles of classification applied in LDA compares to logistic regression.
+
+Diff between logistical regression and LDA:
+Log.R find probability of an observation belonging to a class by minimizing log loss using logit function whereas 
+	LDA uses linear combination to predict the class by optimizing the weights of coefficients for predictor
+		variables to minimize errors.
+Log.R does not retain linearity of equation in order to avoid probabilities going outside the range of 0 and 1 and 
+	brings in Sigmoid to mathematically transform the linear outcome to scale it to within 0 and 1.
+
+Log.R allows points on sigmoid curve always but LDA always creates the points away from the line.
+LDA creates maximum seperation between the classes 
+Log.R good for binary classification whereas LDA is good for multi class classification.
+In Log.R linear combo explains the data well but LDA does it to definite maximum difference among the datasets.
+
+
+Question
+Where will logitical regression work better than LDA?
+why no scaling in assignment?
+
+Neural network and LDA we will scale so far and other models we will not scale based on course so far.
+imbalanced prior probability will have one class at 3% or so and rest in the other class . we need to use balancing methodology here like smoth only for training set.

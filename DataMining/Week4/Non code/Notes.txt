@@ -110,6 +110,9 @@ model tuning: Gridsearch
 model validation: Cross validation, AUC, RAC, confusion matrix, classification report.
 
 Threshold to check of the model is overfitted is to check if the training and testing differs in accuracy by +/- 10%
+number of neurons in hidden layer can be configured to square root of total number of independent variables or
+	number of rows/a(number of indicator+1)
+also based on market standards some time 2 layers is standard for tuning.
 
 Question 
 Why to convert some variables to categorical after reading from csv (if required)?
@@ -118,3 +121,4 @@ what is non negativity property of cost function. also globally continous!
 what is the optimal value for CV, iteration parameters?
 when to start with multiple layers to avoid over fitting.
 for continous classification should the activation function to be used? like linear ones..
+
