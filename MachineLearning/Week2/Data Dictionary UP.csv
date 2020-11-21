@@ -1,0 +1,17 @@
+Attribute,Description
+Gender,Male/Female
+age,Age of the person
+education,"1 indicates High School, 2 indicates- Secondary School,3 indicates Graduation, 4 indicates Post Graduation"
+currentSmoker,1 Indicates person is a smoker and 0 indicates non- smoker
+cigsPerDay,Number of cigrattes consumed in a day
+BP Meds,1 indidates person is consuming BP medicines and 0 indicates person is not consuming BP medicines
+prevalentStroke,1 indidates person had stroke in the past and 0 indicates person did not suffered from stroke in the past
+prevalentHyp,1 indidates person is suffering from Hypertension  and 0 indicates person is not suffering from hypertension
+diabetes,1 indicates person is diabatic and 0 indicates person in non-diabetic
+tot cholesterol,Indicates total cholesterol level in the body
+Systolic BP,Systolic BP of the person
+Diastolic BP,Diastolic BP of the person
+BMI,Indicates BMI level in the body
+heartRate,Indicates body heartrate
+glucose,Glucose level of the body
+Heart-Att,1 Indicates  person suffered from Heart-attack and 0 indicates that person will not suffer from Heart-attack
