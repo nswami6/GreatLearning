@@ -1,0 +1,14 @@
+penalize words appearing most times or least times as they dont add value
+
+TFID vectorizer gives importances to words with most frequency
+
+TF: # of time a word of interest is used in the document/(Divided by) total number of words in that document
+
+IDF: log(number of documents/no of documents where a particular word of interest appears). i.e :Log function penalizes the most frequently
+			used words.
+
+TFIDF: 
+
+
+stemming and lemmatisation: steming use rules and lematisation uses lexicon.
+

@@ -12,7 +12,7 @@ if independent variables are categorical variables we need to convert into numer
 LDA finds the best line of discrimination of 0s and 1s and does that by searching or optimizing the linear combinations.
 	it can do that numerically or by using algebraic formulations or minimization formualaes derived from calculus and linear algebra. thus finds optimal seperating plane.
 	this concept is used in Support vector machine (SVM). 
-	such classification done by LDA can be multi class also.
+	such classification done by LDA can be multi clafss also.
 
 application:
 separate 0s and 1s
